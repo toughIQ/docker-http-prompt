@@ -1,9 +1,7 @@
-FROM python:latest
+FROM python:alpine
 MAINTAINER toughiq@gmail.com
 
-RUN apt-get update && apt-get upgrade -y \ 
-    && pip install http-prompt \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apk update && apk upgrade \ 
+    && pip install http-prompt 
 
 ENTRYPOINT ["http-prompt"]
